@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="menu_bizwhatz_root" name="Bizwhatz" parent="custom_leads_19.menu_leads_config" sequence="90"
+              groups="custom_leads_19.group_super_admin,custom_leads_19.group_lead_manager"/>
+    <menuitem id="menu_bizwhatz_config" name="Connection" parent="menu_bizwhatz_root" action="action_bizwhatz_config" sequence="1"/>
+    <menuitem id="menu_bizwhatz_map" name="Status Mapping" parent="menu_bizwhatz_root" action="action_bizwhatz_map" sequence="2"/>
+    <menuitem id="menu_bizwhatz_log" name="Log / Queue" parent="menu_bizwhatz_root" action="action_bizwhatz_log" sequence="3"/>
+</odoo>

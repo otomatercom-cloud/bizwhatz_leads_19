@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_bizwhatz_config_form" model="ir.ui.view">
+        <field name="name">otm.bizwhatz.config.form</field>
+        <field name="model">otm.bizwhatz.config</field>
+        <field name="arch" type="xml">
+            <form string="Bizwhatz Connection">
+                <header>
+                    <button name="action_test_connection" type="object" string="Test connection" class="btn-primary"/>
+                    <button name="action_load_statuses" type="object" string="Load Bizwhatz statuses"/>
+                    <button name="action_pull_leads" type="object" string="Pull existing leads"
+                            confirm="Read leads from Bizwhatz and create / update them in Odoo?"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="1. Bizwhatz → Odoo (webhook)">
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active" invisible="1"/>
+                            <field name="webhook_url" widget="CopyClipboardChar"/>
+                            <field name="webhook_secret" password="True"/>
+                            <button name="action_new_token" type="object" string="Generate new token"
+                                    confirm="The old webhook URL stops working. Continue?" colspan="2"/>
+                            <field name="auto_create"/>
+                            <field name="source_id" invisible="not auto_create"/>
+                            <field name="default_quality" invisible="not auto_create"/>
+                            <field name="use_executive_owner"/>
+                        </group>
+                        <group string="2. Odoo → Bizwhatz (API)">
+                            <field name="base_url"/>
+                            <field name="api_key" password="True"/>
+                            <field name="country_code"/>
+                            <field name="push_status"/>
+                            <field name="push_new_leads"/>
+                            <field name="push_source_ids" widget="many2many_tags" invisible="not push_new_leads"/>
+                        </group>
+                    </group>
+                    <div class="text-muted">
+                        In Bizwhatz: SmartLead → Settings → External API &amp; Webhooks. Paste the Webhook URL above,
+                        the same secret, and copy the Organization API Key into this form.
+                        Map Bizwhatz statuses to Lead Quality under Bizwhatz → Status Mapping.
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_bizwhatz_config_list" model="ir.ui.view">
+        <field name="name">otm.bizwhatz.config.list</field>
+        <field name="model">otm.bizwhatz.config</field>
+        <field name="arch" type="xml">
+            <list><field name="company_id"/><field name="base_url"/><field name="push_status"/><field name="push_new_leads"/></list>
+        </field>
+    </record>
+
+    <record id="action_bizwhatz_config" model="ir.actions.act_window">
+        <field name="name">Bizwhatz Connection</field>
+        <field name="res_model">otm.bizwhatz.config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="view_bizwhatz_map_list" model="ir.ui.view">
+        <field name="name">otm.bizwhatz.status.map.list</field>
+        <field name="model">otm.bizwhatz.status.map</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="bizwhatz_status"/>
+                <field name="lead_quality"/>
+                <field name="push_back"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_bizwhatz_map" model="ir.actions.act_window">
+        <field name="name">Status Mapping</field>
+        <field name="res_model">otm.bizwhatz.status.map</field>
+        <field name="view_mode">list</field>
+    </record>
+</odoo>

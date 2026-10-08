@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bizwhatz_config_manager,bizwhatz.config.manager,model_otm_bizwhatz_config,custom_leads_19.group_lead_manager,1,1,1,0
+access_bizwhatz_config_admin,bizwhatz.config.admin,model_otm_bizwhatz_config,custom_leads_19.group_super_admin,1,1,1,1
+access_bizwhatz_map_manager,bizwhatz.map.manager,model_otm_bizwhatz_status_map,custom_leads_19.group_lead_manager,1,1,1,1
+access_bizwhatz_map_admin,bizwhatz.map.admin,model_otm_bizwhatz_status_map,custom_leads_19.group_super_admin,1,1,1,1
+access_bizwhatz_log_manager,bizwhatz.log.manager,model_otm_bizwhatz_log,custom_leads_19.group_lead_manager,1,1,0,0
+access_bizwhatz_log_admin,bizwhatz.log.admin,model_otm_bizwhatz_log,custom_leads_19.group_super_admin,1,1,1,1

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_leads_logic_form_bizwhatz" model="ir.ui.view">
+        <field name="name">leads.logic.form.bizwhatz</field>
+        <field name="model">leads.logic</field>
+        <field name="inherit_id" ref="custom_leads_19.view_leads_logic_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_bizwhatz_push" type="object" string="Send to Bizwhatz"
+                        groups="custom_leads_19.group_lead_manager,custom_leads_19.group_super_admin"/>
+            </xpath>
+            <field name="phone_number" position="after">
+                <field name="bizwhatz_id" invisible="not bizwhatz_id"/>
+                <field name="bizwhatz_status" invisible="not bizwhatz_status"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_leads_logic_search_bizwhatz" model="ir.ui.view">
+        <field name="name">leads.logic.search.bizwhatz</field>
+        <field name="model">leads.logic</field>
+        <field name="inherit_id" ref="custom_leads_19.view_leads_logic_search"/>
+        <field name="arch" type="xml">
+            <field name="leads_source" position="after">
+                <filter name="filter_bizwhatz" string="From / in Bizwhatz" domain="[('bizwhatz_id','!=',False)]"/>
+            </field>
+        </field>
+    </record>
+</odoo>

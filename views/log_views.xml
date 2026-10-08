@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_bizwhatz_log_list" model="ir.ui.view">
+        <field name="name">otm.bizwhatz.log.list</field>
+        <field name="model">otm.bizwhatz.log</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="state == 'failed'" decoration-warning="state == 'pending'" decoration-muted="state == 'ignored'">
+                <field name="create_date"/>
+                <field name="direction"/>
+                <field name="event"/>
+                <field name="lead_id"/>
+                <field name="state"/>
+                <field name="attempts" optional="hide"/>
+                <field name="error"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_bizwhatz_log_form" model="ir.ui.view">
+        <field name="name">otm.bizwhatz.log.form</field>
+        <field name="model">otm.bizwhatz.log</field>
+        <field name="arch" type="xml">
+            <form create="0">
+                <header>
+                    <button name="action_retry" type="object" string="Retry" class="btn-primary"
+                            invisible="direction != 'out' or state not in ('failed','pending')"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group><field name="direction"/><field name="event"/><field name="state"/><field name="lead_id"/></group>
+                        <group><field name="method"/><field name="path"/><field name="attempts"/></group>
+                    </group>
+                    <group string="Error" invisible="not error"><field name="error" nolabel="1"/></group>
+                    <group string="Payload"><field name="payload" nolabel="1"/></group>
+                    <group string="Bizwhatz response" invisible="not response"><field name="response" nolabel="1"/></group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_bizwhatz_log_search" model="ir.ui.view">
+        <field name="name">otm.bizwhatz.log.search</field>
+        <field name="model">otm.bizwhatz.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="event"/><field name="lead_id"/>
+                <filter name="f_failed" string="Failed" domain="[('state','=','failed')]"/>
+                <filter name="f_pending" string="Pending" domain="[('state','=','pending')]"/>
+                <filter name="f_in" string="Incoming" domain="[('direction','=','in')]"/>
+                <filter name="f_out" string="Outgoing" domain="[('direction','=','out')]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_bizwhatz_log" model="ir.actions.act_window">
+        <field name="name">Bizwhatz Log</field>
+        <field name="res_model">otm.bizwhatz.log</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

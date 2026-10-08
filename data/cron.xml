@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <record id="cron_bizwhatz_out" model="ir.cron">
+        <field name="name">Bizwhatz: send queued updates</field>
+        <field name="model_id" ref="model_otm_bizwhatz_log"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_process_out()</field>
+        <field name="interval_number">2</field>
+        <field name="interval_type">minutes</field>
+        <field name="active" eval="True"/>
+    </record>
+</odoo>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <record id="map_0" model="otm.bizwhatz.status.map">
+        <field name="bizwhatz_status">New Lead</field>
+        <field name="lead_quality">new</field>
+        <field name="push_back" eval="True"/>
+    </record>
+    <record id="map_1" model="otm.bizwhatz.status.map">
+        <field name="bizwhatz_status">New</field>
+        <field name="lead_quality">new</field>
+        <field name="push_back" eval="False"/>
+    </record>
+    <record id="map_2" model="otm.bizwhatz.status.map">
+        <field name="bizwhatz_status">Contacted</field>
+        <field name="lead_quality">first_attempt</field>
+        <field name="push_back" eval="True"/>
+    </record>
+    <record id="map_3" model="otm.bizwhatz.status.map">
+        <field name="bizwhatz_status">Follow-Up Call</field>
+        <field name="lead_quality">follow_up</field>
+        <field name="push_back" eval="True"/>
+    </record>
+    <record id="map_4" model="otm.bizwhatz.status.map">
+        <field name="bizwhatz_status">Follow Up</field>
+        <field name="lead_quality">follow_up</field>
+        <field name="push_back" eval="False"/>
+    </record>
+    <record id="map_5" model="otm.bizwhatz.status.map">
+        <field name="bizwhatz_status">Interested</field>
+        <field name="lead_quality">warm</field>
+        <field name="push_back" eval="True"/>
+    </record>
+    <record id="map_6" model="otm.bizwhatz.status.map">
+        <field name="bizwhatz_status">Hot</field>
+        <field name="lead_quality">hot</field>
+        <field name="push_back" eval="True"/>
+    </record>
+    <record id="map_7" model="otm.bizwhatz.status.map">
+        <field name="bizwhatz_status">Warm</field>
+        <field name="lead_quality">warm</field>
+        <field name="push_back" eval="False"/>
+    </record>
+    <record id="map_8" model="otm.bizwhatz.status.map">
+        <field name="bizwhatz_status">Cold</field>
+        <field name="lead_quality">cold</field>
+        <field name="push_back" eval="True"/>
+    </record>
+    <record id="map_9" model="otm.bizwhatz.status.map">
+        <field name="bizwhatz_status">Qualified</field>
+        <field name="lead_quality">waiting_for_admission</field>
+        <field name="push_back" eval="True"/>
+    </record>
+    <record id="map_10" model="otm.bizwhatz.status.map">
+        <field name="bizwhatz_status">Converted</field>
+        <field name="lead_quality">admission</field>
+        <field name="push_back" eval="True"/>
+    </record>
+    <record id="map_11" model="otm.bizwhatz.status.map">
+        <field name="bizwhatz_status">Won</field>
+        <field name="lead_quality">admission</field>
+        <field name="push_back" eval="False"/>
+    </record>
+    <record id="map_12" model="otm.bizwhatz.status.map">
+        <field name="bizwhatz_status">Not Interested</field>
+        <field name="lead_quality">not_interested</field>
+        <field name="push_back" eval="True"/>
+    </record>
+    <record id="map_13" model="otm.bizwhatz.status.map">
+        <field name="bizwhatz_status">Lost</field>
+        <field name="lead_quality">not_interested</field>
+        <field name="push_back" eval="False"/>
+    </record>
+    <record id="map_14" model="otm.bizwhatz.status.map">
+        <field name="bizwhatz_status">Wrong Number</field>
+        <field name="lead_quality">wrong_number</field>
+        <field name="push_back" eval="True"/>
+    </record>
+</odoo>
